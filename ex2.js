@@ -4,7 +4,7 @@ var app = express();
 var request = require("request");
 var cheerio = require("cheerio");
 var fs = require("fs");
-var poort = 8080;
+var port = 8080;
 
 var url = "https://www.reddit.com/"
 

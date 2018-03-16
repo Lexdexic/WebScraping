@@ -6,14 +6,25 @@ var cheerio = require("cheerio");
 var fs = require("fs");
 var port = 8080;
 
-var url = "https://www.reddit.com/"
+var url = "https://www.cnbc.com/technology/"
 
 request(url, function(err, resp, body){
     var $ = cheerio.load(body);
-    var articleTitle = $(".title");
+    
+    var articleTitle = $(".headline");
     var articleTitleText = articleTitle.text();
+    
+    var articleDescription = $(".desc")
+    var articleDescriptionText = articleDescription.text();
 
+    var info = {
+        articleTitle: articleTitleText,
+        articleDescription: articleDescriptionText
+    }
+
+    console.log(info);
     console.log(articleTitleText);
+    console.log(articleDescriptionText);
 })
 
 app.listen(port);
